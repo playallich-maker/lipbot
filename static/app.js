@@ -4,15 +4,16 @@
 // Содержит: выбор фрагмента на волне + запись видео с музыкой
 // ============================================================
 
-// ---------- Инициализация Telegram WebApp ----------
 const tg = window.Telegram.WebApp;
 tg.ready();
 tg.expand();
 tg.disableVerticalSwipes();
 
-// Достаём user_id из URL (передаётся ботом при открытии)
 const params = new URLSearchParams(window.location.search);
 const userId = params.get("user_id");
+
+console.log("USER ID:", userId);
+console.log("FULL URL:", window.location.href); // ← добавь эту строку для отладки
 
 // Элементы интерфейса
 const waveScreen = document.getElementById("waveScreen");
