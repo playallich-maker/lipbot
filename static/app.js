@@ -9,8 +9,18 @@ tg.ready();
 tg.expand();
 tg.disableVerticalSwipes();
 
-const params = new URLSearchParams(window.location.search);
-const userId = params.get("user_id");
+let userId = null;
+
+// Ждём user_id от родительского окна (index.html)
+window.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "USER_ID") {
+    userId = event.data.userId;
+    console.log("USER ID RECEIVED:", userId);
+    initWaveform();   // запускаем загрузку волны только после получения userId
+  }
+});
+
+// Убираем немедленный вызов initWaveform внизу файла!
 
 console.log("USER ID:", userId);
 console.log("FULL URL:", window.location.href); // ← добавь эту строку для отладки
@@ -104,10 +114,7 @@ document.getElementById("confirmRegionBtn").onclick = async () => {
   await initRecording(res.duration);
 };
 
-// Запускаем загрузку волны
-initWaveform().catch((err) => {
-  regionInfo.textContent = "Ошибка загрузки волны: " + err.message;
-});
+
 
 // ============================================================
 // ЧАСТЬ 2: ЗАПИСЬ ВИДЕО С МУЗЫКОЙ
