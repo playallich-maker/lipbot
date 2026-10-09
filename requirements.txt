@@ -1,0 +1,6 @@
+aiogram>=3.4.0
+fastapi
+uvicorn[standard]
+python-multipart
+aiofiles
+pydub

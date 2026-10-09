@@ -1,0 +1,89 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#waveScreen {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#waveform {
+  width: 100%;
+  min-height: 100px;
+  background: #111;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.wave-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#regionInfo {
+  font-size: 14px;
+  color: #aaa;
+  text-align: center;
+}
+
+#recordScreen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#preview {
+  width: 100vw;
+  flex: 1;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.record-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 14px;
+  background: #111;
+}
+
+button {
+  padding: 16px 40px;
+  border-radius: 50px;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #ff3b30;
+  color: #fff;
+}
+
+#stopBtn { background: #fff; color: #000; }
+#status { font-size: 14px; color: #aaa; }
+
+.progress {
+  width: 80%;
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+#progressBar {
+  height: 100%;
+  width: 0;
+  background: #ff3b30;
+  transition: width 0.1s linear;
+}
