@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>Lip Sync</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <!-- Библиотека для волны -->
+  <script src="https://unpkg.com/wavesurfer.js@7"></script>
+  <script src="https://unpkg.com/wavesurfer.js@7/dist/plugins/regions.min.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <!-- Экран выбора фрагмента -->
+  <div id="waveScreen">
+    <div id="waveform"></div>
+    <div class="wave-controls">
+      <button id="playRegionBtn">▶️ Прослушать фрагмент</button>
+      <button id="confirmRegionBtn">✂️ Выбрать фрагмент</button>
+    </div>
+    <div id="regionInfo">Выдели фрагмент на волне</div>
+  </div>
+
+  <!-- Экран записи -->
+  <div id="recordScreen" style="display:none">
+    <video id="preview" autoplay playsinline muted></video>
+    <audio id="music" preload="auto"></audio>
+    <div class="record-controls">
+      <div id="status">Готов к записи</div>
+      <div class="progress"><div id="progressBar"></div></div>
+      <button id="recordBtn">🔴 Записать</button>
+      <button id="stopBtn" style="display:none">⏹ Стоп</button>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
